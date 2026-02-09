@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang= "en">
+	<head>
+	<style> 
+	
+	form { 
+		margin: 0px;
+		padding 0px;
+		background-color: pink;
+		border: 2px solid black;
+		border-radius: 5px;
+		width: 100%;
+		height: 100%;
+	}
+	
+	body {
+		background: green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.container {
+		width: 100%;
+		height: 100%;
+		max-width: 440px;
+		background: white;
+		padding: 0;
+		border-radius: 18px;
+		box-shadow: 0 20px 60px;
+	}
+
+	text {
+		margin: 3px;
+		padding: 3px;
+	}
+
+	date {
+		margin: 3px;
+		padding: 3px;
+	}
+
+	radio {
+		margin: 3px;
+		padding: 3px;
+	}
+	button {
+		margin: 5px;
+		padding: 5px; 
+		justify-content; center;
+	}
+
+	div {
+		background-color: lightblue;
+	}
+
+	p1 {
+		background-color: darkblue;
+	}
+	
+	p2 {
+		background-color: cyan;
+	}
+	p3 {
+		background-color: orange;
+	}
+	p4 {
+		background-color: red;
+	}
+	p5 {
+		background-color: lightgreen;
+	}
+
+	textarea{
+		margin: 2.5px;
+		padding: 2.5px;
+		border: 1px solid green;
+		border-radius: 5px 10px;
+		width: 94%;
+		height: 100%;
+	}
+	</style>
+	<title> Diary Entry - John Lord Pio </title>
+
+	</head>
+	
+	<body>
+
+	<main class = "container">
+		<h1> <font color = "pink">  Diary Entry </font></h1>
+		
+	<form action="/action_page.php">
+		<text>
+		<label for="fname"><b>First name:</b></label><br>
+		</text>
+		<text>
+		<input type="text" id="fname" name="fname"><br>
+		</text>
+		<text>
+		<label for="lname"><b>Last name:</b></label><br>
+		</text>
+		<text>
+		<input type="text" id="lname" name="lname"><br>
+		</text>
+		
+		<date>
+		<label for="date"><b>Date:</b></label><br>
+		</date>
+		<date>
+		<input type="date" id="date" name="myDate"><br>
+		</date>
+
+		<br>
+		<radio>
+		<label><b>AM or PM:</b></label>
+		<input type="radio" id=" AM " name="ampm" value="AM">
+		<label for="am">AM</label>
+
+		<input type="radio" id=" PM " name="ampm" value="PM">
+		<label for="pm">PM</label><br>
+		</radio>
+
+		<br>
+		<div>
+		<input type="checkbox" id="mood1" name="mood1" value="Happy">
+		<label for="mood1">
+			<p1>
+			<font color="yellow"> I am happy! </font>
+			</p1>
+		</label><br>
+		<input type="checkbox" id="mood2" name="mood2" value="Angry">
+		<label for="mood2">
+			<p2>
+			<font color="red"> I am <b>ANGRY!</b> </font>
+			</p2>
+		</label><br>
+		<input type="checkbox" id="mood3" name="mood3" value="Sad">
+		<label for="mood3">
+			<p3>
+			<font color="blue"> I am sad.. </font>
+			</p3>
+		</label><br>
+		<input type="checkbox" id="mood4" name="mood4" value="Excited">
+		<label for="mood4">
+			<p4>
+			<font color="green"> I am <b>EXCITED!</b></font>
+`			</p4>
+		</label><br>
+		<input type="checkbox" id="mood5" name="mood5" value="In love">
+		<label for="mood5">
+			<p5>
+			<font color="magenta"> I am in love hehe </font>
+			</p5>
+		</label><br>
+		<input type="checkbox" id="mood6" name="mood6" value="Exhausted">
+		<label for="mood6">
+			<font color="brown"> I am exhausted... </font>
+		</label><br>
+		</div>
+		
+		<br>
+		<text>
+		<label for="entry"><b>Your entry: </b></label><br>
+		</text>
+
+		<textarea>
+		</textarea>
+		<br>
+
+		<button>
+		<input type="submit" value="Submit">
+		</button>
+
+		</form>
+	</body>
+</html>
