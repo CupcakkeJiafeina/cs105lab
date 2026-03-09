@@ -2,25 +2,25 @@
 
 <head>
 	<style>
-	
-	form { 
-		margin: autopx;
-		border: 2px solid gray;
-		border-radius: 5px;
-		text-align: center;
-		align-items: center;
-	}
 
 	body {
 		display: flex;
 		justify-content: center;
 		text-align: center;
-		align-items: top;
+		align-items: top;	
+	}
+	
+	label {
+		margin:10px 0 5px;
+		font-weight: bold;
 	}
 
-	p1 {
-		background-color: pink;
+	table {
+		width:66%;
+		text-align:center;
+		margin-left:17%;
 	}
+
 	</style>
 
 <title>Inventory System </title>
@@ -31,62 +31,90 @@
 	<main class = "container">
 	<h2>Inventory System</h2>
 
-	<form>
-	<p1>
 	<label for="item">Item name:</label>
 	<input type="text" id="item" name="item">
-	</p1>
-	<p1>
 	<label for="price">Price:</label>
 	<input type="number" id="price" name="price">
-	</p1>
-	<p1>
 	<label for="stock">Stock:</label>
 	<input type="number" id="stock" name="stock">
-	</p1>	
+	<button onclick = "addItem()">Buy Item</button><br>
 	
-	<button onclick = "addItem()">Add Item</button><br>
-	
-	<p1>
-	<label for="table"><b>Items:</b1></label>
-	<div id="table"></div>
-	</form>
+	<label><b>Items:</b1></label>
+
+	<table border = "|" id = "table">
+	<tr>
+		<th>Item</th>
+		<th>Price</th>
+		<th>Stocks</th>
+	</tr>
+</body>
 
 <script>
 
+class Inventory{
+	constructor(item,price,stock){
+	this.item = item;
+	this.price = price;
+	this.stock = stock;
+	}
+}
+
 function addItem(){
-	var Table = document.getElementById("table");
+	var table = document.getElementById("table");
 	var Items = document.getElementById("item");
 	var Price = document.getElementById("price");
 	var Stock = document.getElementById("stock");
-		if (Items.value != ""){
-			if (Price.value != ""){
-				if (Stock.value <= 0){
-				table.innerHTML += `<pre>${Items.value}	${Price.value}	<font color = "red">Out of stock</font></pre>`;
-				} else {
-				table.innerHTML += `<pre>${Items.value}	${Price.value}	${Stock.value}</pre>`;
-				}
+
+	let row = document.createElement("tr");
+	let cell1 = document.createElement("td");
+	let cell2 = document.createElement("td");
+	let cell3 = document.createElement("td");
+	if (Items.value != ""){
+		if (Price.value != ""){
+			cell1.innerHTML = Items.value;
+			row.appendChild(cell1);
+			cell2.innerHTML = Price.value;
+			row.appendChild(cell2);
+			if (Stock.value <= 0){
+				cell3.innerHTML = `<pre><font color = "red">Out of Stock</font></pre>`;
+				row.appendChild(cell3);
+					
+			} else {
+				cell3.innerHTML = Stock.value;
+				row.appendChild(cell3);
+					
 			}
+			table.appendChild(row);
 		}
+	}
 
 }
 
 function preItem(Items,Price,Stock){
-	var Table = document.getElementById("table");
-		if (Stock <= 0){
-			table.innerHTML += `<pre>${Items}	${Price}	<font color = "red">Out of stock</font></pre>`;
+	var table = document.getElementById("table");
+		
+	let row = document.createElement("tr");
+	let cell1 = document.createElement("td");
+	let cell2 = document.createElement("td");
+	let cell3 = document.createElement("td");
+	cell1.innerHTML = Items;
+	row.appendChild(cell1);
+	cell2.innerHTML = Price;
+	row.appendChild(cell2);
+	if (Stock <= 0){
+		cell3.innerHTML = `<pre><font color = "red">Out of Stock</font></pre>`;
+		row.appendChild(cell3);		
 		} else {
-			table.innerHTML += `<pre>${Items}	${Price}	${Stock}</pre>`;
-		}
+		cell3.innerHTML = Stock;
+		row.appendChild(cell3);				
+	}
+	table.appendChild(row);
 }
-
 preItem("Coconut",79,0)
 preItem("Water",12,69)
 preItem("Milk",53,12)
 preItem("Cream",67,67)
 preItem("Tea",12,0)
 
-
 </script>
-</body>
 </html>
