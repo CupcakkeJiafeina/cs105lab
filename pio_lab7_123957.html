@@ -1,0 +1,168 @@
+<html>
+
+<head>
+	<style>
+
+	body {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: top;	
+	}
+	
+	label {
+		margin:10px 0 5px;
+		font-weight: bold;
+	}
+
+	table {
+		width:66%;
+		text-align:center;
+		margin-left:17%;
+	}
+
+	</style>
+
+<title>Inventory System </title>
+</head>
+
+
+<body>
+	<main class = "container">
+	<h2>Inventory System</h2>
+
+	<label for="item">Item name:</label>
+	<input type="text" id="item" name="item">
+	<label for="price">Price:</label>
+	<input type="number" id="price" name="price">
+	<label for="stock">Stock:</label>
+	<input type="number" id="stock" name="stock">
+	<button onclick = "addItem()">Add Item</button><br>
+	
+	<br>
+
+	<h3>Buy Product</h3>
+	<label for="buyItem">Product Name:</label>
+	<input type="text" id="buyItem">
+
+	<label for="buyQuan">Quantity:</label>
+	<input type="number" id="buyQuan">
+
+	<button onclick="buyItem()" style="background-color: green; color: white;">Buy</button>
+	
+	<br><br>
+	<label><b>Items:</b1></label>
+
+	<table border = "|" id = "table">
+	<tr>
+		<th>Item</th>
+		<th>Price</th>
+		<th>Stocks</th>
+	</tr>
+</body>
+
+<script>
+
+class Inventory{
+	constructor(item,price,stock){
+	this.item = item;
+	this.price = price;
+	this.stock = stock;
+	}
+}
+
+function addItem(){
+	var table = document.getElementById("table");
+	var Items = document.getElementById("item");
+	var Price = document.getElementById("price");
+	var Stock = document.getElementById("stock");
+
+	let row = document.createElement("tr");
+	let cell1 = document.createElement("td");
+	let cell2 = document.createElement("td");
+	let cell3 = document.createElement("td");
+	if (Items.value != ""){
+		if (Price.value != ""){
+			cell1.innerHTML = Items.value;
+			row.appendChild(cell1);
+			cell2.innerHTML = Price.value;
+			row.appendChild(cell2);
+			if (Stock.value <= 0){
+				cell3.innerHTML = `<pre><font color = "red">Out of Stock</font></pre>`;
+				row.appendChild(cell3);
+					
+			} else {
+				cell3.innerHTML = Stock.value;
+				row.appendChild(cell3);
+					
+			}
+			table.appendChild(row);
+		}
+	}
+
+}
+
+function buyItem(){
+	let name = document.getElementById("buyItem").value;
+	let qty = parseInt(document.getElementById("buyQuan").value);
+
+	let table = document.getElementById("table");
+
+	for(let i = 1; i < table.rows.length; i++){
+
+		let row = table.rows[i];
+		let itemName = row.cells[0].innerHTML;
+		let stockCell = row.cells[2];
+
+		if(itemName.toLowerCase() === name.toLowerCase()){
+
+			let currentStock = parseInt(stockCell.innerText);
+
+			if(isNaN(currentStock) || currentStock < qty){
+				alert("Out of Stock");
+				return;
+			}
+
+			let newStock = currentStock - qty;
+
+			if(newStock <= 0){
+				stockCell.innerHTML = `<font color="red">Out of Stock</font>`;
+			}else{
+				stockCell.innerHTML = newStock;
+			}
+
+			return;
+		}
+	}
+
+	alert("Item not found");
+}
+
+function preItem(Items,Price,Stock){
+	var table = document.getElementById("table");
+		
+	let row = document.createElement("tr");
+	let cell1 = document.createElement("td");
+	let cell2 = document.createElement("td");
+	let cell3 = document.createElement("td");
+	cell1.innerHTML = Items;
+	row.appendChild(cell1);
+	cell2.innerHTML = Price;
+	row.appendChild(cell2);
+	if (Stock <= 0){
+		cell3.innerHTML = `<pre><font color = "red">Out of Stock</font></pre>`;
+		row.appendChild(cell3);		
+		} else {
+		cell3.innerHTML = Stock;
+		row.appendChild(cell3);				
+	}
+	table.appendChild(row);
+}
+preItem("Coconut",79,0)
+preItem("Water",12,69)
+preItem("Milk",53,12)
+preItem("Cream",67,67)
+preItem("Tea",12,0)
+
+</script>
+</html>
