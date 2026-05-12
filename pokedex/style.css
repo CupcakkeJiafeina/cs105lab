@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background: #07132d;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* POKEDEX */
+.pokedex {
+  display: flex;
+  background: #d40000;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+.left-panel,
+.right-panel {
+  width: 350px;
+  padding: 20px;
+}
+
+.divider {
+  width: 40px;
+  background: linear-gradient(to right, #a10000, #d10000, #8b0000);
+}
+
+/* TOP LIGHTS */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.big-light {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: cyan;
+  border: 5px solid white;
+  box-shadow: 0 0 20px cyan;
+}
+
+.small-lights {
+  display: flex;
+  gap: 10px;
+}
+
+.small-lights span {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.red {
+  background: red;
+}
+
+.yellow {
+  background: yellow;
+}
+
+.green {
+  background: lime;
+}
+
+/* SEARCH */
+.search-area {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+.search-area button {
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* SCREEN */
+.screen-container {
+  background: #bdbdbd;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.screen {
+  height: 250px;
+  background: #e9e9e9;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #666;
+}
+
+.screen img {
+  width: 150px;
+  image-rendering: pixelated;
+}
+
+.screen p {
+  color: gray;
+  font-weight: bold;
+}
+
+.screen-bottom {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.red-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: darkred;
+}
+
+.speaker span {
+  display: block;
+  width: 60px;
+  height: 5px;
+  background: #555;
+  margin-bottom: 4px;
+}
+
+/* CONTROLS */
+.controls {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blue-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: royalblue;
+}
+
+.mini-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.green-btn,
+.orange-btn {
+  width: 50px;
+  height: 15px;
+  border-radius: 10px;
+}
+
+.green-btn {
+  background: limegreen;
+}
+
+.orange-btn {
+  background: orangered;
+}
+
+/* DPAD */
+.dpad {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.vertical,
+.horizontal {
+  position: absolute;
+  background: #222;
+}
+
+.vertical {
+  width: 30px;
+  height: 80px;
+  left: 25px;
+}
+
+.horizontal {
+  width: 80px;
+  height: 30px;
+  top: 25px;
+}
+
+.center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: black;
+  top: 30px;
+  left: 30px;
+  border-radius: 50%;
+}
+
+/* RIGHT PANEL */
+.top-shape {
+  width: 100%;
+  height: 80px;
+  background: white;
+  border-bottom-left-radius: 60px;
+}
+
+.info-screen {
+  margin-top: 30px;
+  background: #32ff00;
+  height: 150px;
+  border-radius: 15px;
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  overflow-y: auto;
+}
+
+.blue-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.blue-grid div {
+  height: 40px;
+  background: #246bff;
+  border-radius: 10px;
+}
+
+.indicator-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orange-light,
+.green-light {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.orange-light {
+  background: orange;
+}
+
+.green-light {
+  background: lime;
+}
+
+.small-bars {
+  display: flex;
+  gap: 10px;
+}
+
+.green-bar,
+.orange-bar {
+  width: 50px;
+  height: 12px;
+  border-radius: 10px;
+}
+
+.green-bar {
+  background: limegreen;
+}
+
+.orange-bar {
+  background: orangered;
+}
+
+.bottom-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.bottom-buttons div {
+  flex: 1;
+  height: 70px;
+  background: gold;
+  border-radius: 15px;
+}
+
+.lab-text h1 {
+  color: #ff4040;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+.lab-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.ready {
+  color: gold;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media(max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
